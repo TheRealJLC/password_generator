@@ -1,0 +1,60 @@
+import random
+import string
+
+
+def start():
+    x = input("How complex would you like your password to be?"
+              "(easy, medium, hard, extreme)")
+    if x == "easy":
+        easy()
+    elif x == "medium":
+        medium()
+    elif x == "hard":
+        hard()
+    elif x == "extreme":
+        extreme()
+    else:
+        print("Please type in a valid option.")
+        start()
+
+
+def easy():
+    a = ["frank", "judge", "undermine", "glide", "fraction", "nationalism", "improve", "day", "transfer", "comfort",
+         "method"]
+    x = random.randint(0, 10)
+    print(a[x])
+
+
+def medium():
+    length = int(input("How long would you like your password to be?"))
+    a = range(length)
+    b = []
+    for x in a:
+        b.extend(random.choices(string.ascii_letters))
+    c = " ".join(b)
+    d = c.replace(" ", "")
+    print(d)
+
+
+def hard():
+    length = int(input("How long would you like your password to be?"))
+    a = range(length)
+    b = []
+    for x in a:
+        b.extend(random.choices(string.ascii_letters + string.digits))
+    c = " ".join(b)
+    d = c.replace(" ", "")
+    print(d)
+
+
+def extreme():
+    length = int(input("How long would you like your password to be?"))
+    a = range(length)
+    b = []
+    for x in a:
+        b.extend(random.choices(string.ascii_letters + string.digits + string.punctuation))
+    c = " ".join(b)
+    d = c.replace(" ", "")
+    print(d)
+
+start()
